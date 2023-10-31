@@ -5,21 +5,29 @@ const flavors = prompt("What Froyo flavors would you like? ");
 
 const flavorCount = (flavorList) => {
 	//separate list into an array of values (use split with comma)
-	const list = flavorList.split(`,`);
+	const flavorArray = flavorList.split(`,`);
 	//create an object that will eventually contain a key (flavor) and value (number of order)
-	const order = {};
+	const flavorCount = {};
 	//iterate through each item in the array
-	for (i = 0; i < list.length; i++) {
-		//if flavor does not exist in object, create a new key and set value to 1
-		if (order[list[i]] == null) {
-			order[list[i]] = 1;
-		} 
-		//if flavor does exist, increment count by 1
-		else {
-			order[list[i]]++;
-		}
+	for (i = 0; i < flavorArray.length; i++) {
+		flavorCount[flavorArray[i]] = (flavorCount[flavorArray[i]] + 1) || 1;
+
+
+
+
+
+
+
+		// //if flavor does not exist in object, create a new key and set value to 1
+		// if (flavorCount[flavorArray[i]] == null) {
+		// 	flavorCount[flavorArray[i]] = 1;
+		// } 
+		// //if flavor does exist, increment count by 1
+		// else {
+		// 	flavorCount[flavorArray[i]]++;
+		// }
 	}
-	return order;
+	return flavorCount;
 	}
 
 	console.log(flavorCount(flavors));
